@@ -21,11 +21,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', router);
 
-app.use(express.static(path.resolve(__dirname, 'frontend', 'dist')));
+app.use(express.static(path.resolve(__dirname, 'client', 'build')));
 
 app.get('*', (_, res) => {
   res.sendFile(
-    path.resolve(__dirname, 'frontend', 'dist', 'index.html'),
+    path.resolve(__dirname, 'client', 'build', 'index.html'),
     (err) => {
       if (err) {
         res.status(500).send(err);
