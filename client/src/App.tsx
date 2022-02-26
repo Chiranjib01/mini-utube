@@ -18,10 +18,10 @@ import EditProfile from './pages/EditProfile/EditProfile';
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
-  const [activeItem, setActiveItem] = useState(location.pathname);
+  const [activeItem, setActiveItem] = useState(window.location.pathname);
   useEffect(() => {
-    setActiveItem(location.pathname);
-  }, [location.pathname]);
+    setActiveItem(window.location.pathname);
+  }, [window.location.pathname]);
   return (
     <>
       <Header
