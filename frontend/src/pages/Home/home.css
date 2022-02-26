@@ -1,0 +1,60 @@
+.welcome-title {
+  margin-top: 40px;
+}
+.about-the-app {
+  padding: 18px;
+  margin: 10px auto;
+  max-width: 600px;
+}
+.about-the-app p {
+  font-size: 20px;
+  text-align: justify;
+  line-height: 1.5rem;
+  font-weight: 500;
+  text-indent: 36px;
+}
+.about-the-app p::first-letter {
+  font-size: 36px;
+}
+.login-form-container {
+  max-width: 600px;
+  margin: 10px auto 30px auto;
+  padding: 18px;
+}
+.login-form-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.login-form-container .form-item {
+  width: 100%;
+  margin: 20px auto;
+}
+.login-form-container .form-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #a7a7a7;
+  outline: none;
+}
+.login-form-container .form-input:focus {
+  border: 1px solid #107ebd;
+}
+.login-form-container label {
+  font-size: 20px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+.login-form-container button {
+  width: 100%;
+  padding: 6px;
+  text-transform: uppercase;
+  background-color: #11cbe4;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.login-form-container button:disabled {
+  cursor: not-allowed;
+}
+.login-form-container button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

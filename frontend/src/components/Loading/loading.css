@@ -1,0 +1,18 @@
+/* circular loader */
+.circularLoader {
+  transform: rotateZ(0);
+  animation: circularLoaderAnimation 1s ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  color: #1815dd;
+}
+
+/* circular loader animations */
+@keyframes circularLoaderAnimation {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #b4b2b2;
+}
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+/* flex */
+.flex {
+  display: flex;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+/* hidden */
+.hidden {
+  display: none;
+}
+/* absolute */
+.absolute {
+  position: absolute;
+}
+.top-0 {
+  top: 0;
+}
+.bottom-0 {
+  bottom: 0;
+}
+.left-0 {
+  left: 0;
+}
+.right-0 {
+  right: 0;
+}
+/* relative */
+.relative {
+  position: relative;
+}
+
+/*  */
+
+/* message error */
+.error {
+  background-color: red;
+}
+
+/* message success */
+.success {
+  background-color: green;
+}
+
+/* message info */
+.info {
+  background-color: #0b5558;
+}
+
+/* page progressbar */
+.progressBar {
+  transform: translateX(0);
+  animation: progress 2s ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+/* page progressbar animations */
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
