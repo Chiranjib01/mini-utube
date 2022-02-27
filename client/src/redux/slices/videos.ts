@@ -19,6 +19,10 @@ const videosApi = createApi({
       query: (videoId) => `/video?videoid=${videoId}`,
       // transformResponse:(response)=>response.data
     }),
+    getHistoryById: build.query<any, string>({
+      query: (userId) => `/user/history?userid=${userId}`,
+      // transformResponse:(response)=>response.data
+    }),
   }),
 });
 
@@ -26,5 +30,6 @@ export const {
   useGetVideosQuery,
   useGetVideosByUserQuery,
   useGetVideosByIdQuery,
+  useGetHistoryByIdQuery,
 } = videosApi;
 export default videosApi;

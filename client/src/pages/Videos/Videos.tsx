@@ -28,7 +28,10 @@ const Videos = () => {
                 <div className="details">
                   <img src={video.userProfilePicture} alt="" />
                   <div className="meta">
-                    <div className="title">{video.title}</div>
+                    <div className="title">{`${video.title.slice(
+                      0,
+                      200
+                    )}...`}</div>
                     <div className="createdAt">
                       {moment(video.createdAt).fromNow()}
                     </div>

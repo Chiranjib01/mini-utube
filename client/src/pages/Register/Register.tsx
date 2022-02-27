@@ -41,7 +41,7 @@ const Register = () => {
         email,
         password,
       });
-      dispatch(loginUser(data.user));
+      dispatch(loginUser(data));
       dispatch(
         showMessage({
           text: 'Successfully Registered',

@@ -64,14 +64,14 @@ const Home = () => {
       </div>
       <div className="about-the-app">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur id
-          inventore alias corrupti quidem! Veniam iusto maiores, laborum aut
-          dignissimos assumenda non. Blanditiis accusamus sapiente perspiciatis
-          maxime autem architecto quam neque minus deserunt aperiam modi
-          officiis nam adipisci voluptate tenetur ipsa esse optio error ullam,
-          eaque libero, deleniti assumenda! A, possimus? Excepturi fugiat sequi
-          fuga. Aut fuga dicta aspernatur dolores adipisci animi distinctio
-          laboriosam quisquam blanditiis earum, deleniti omnis laudantium.
+          One Stage . All your video requirements . Enter into the contents you
+          love , upload original substances , and share it all with the world on
+          miniUTube . Tailor each part of your video player to mirror your
+          vision : Settle on your shaddings , logo , and thumbnail Keep your
+          work hidden or secret key safeguarded with cutting-edge security
+          settings . Support for live and 360 videos . An effortless apparatus
+          for yourself as well as group to make , make due and distribute
+          exellent videos .
         </p>
       </div>
       {/* login form */}

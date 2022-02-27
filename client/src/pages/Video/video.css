@@ -1,0 +1,26 @@
+.video-player-container {
+  padding: 8px 18px;
+  margin-bottom: 40px;
+}
+.video-player {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+}
+.video-player video {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.video-details {
+  padding: 10px auto;
+}
+.video-details .title {
+  font-size: 24px;
+  margin: 10px auto;
+}
+.video-details .description {
+  font-size: 17px;
+  font-family: 'Times New Roman', Times, serif;
+}
