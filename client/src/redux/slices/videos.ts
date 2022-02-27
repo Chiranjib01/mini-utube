@@ -11,8 +11,20 @@ const videosApi = createApi({
       query: () => '/videos',
       // transformResponse:(response)=>response.data
     }),
+    getVideosByUser: build.query<any, string>({
+      query: (userId) => `/user/video?userid=${userId}`,
+      // transformResponse:(response)=>response.data
+    }),
+    getVideosById: build.query<any, string>({
+      query: (videoId) => `/video?videoid=${videoId}`,
+      // transformResponse:(response)=>response.data
+    }),
   }),
 });
 
-export const { useGetVideosQuery } = videosApi;
+export const {
+  useGetVideosQuery,
+  useGetVideosByUserQuery,
+  useGetVideosByIdQuery,
+} = videosApi;
 export default videosApi;

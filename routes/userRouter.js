@@ -47,7 +47,7 @@ userRouter.post('/login', async (req, res) => {
   }
 });
 
-videosRouter.get('/user/video', async (req, res) => {
+userRouter.get('/user/video', async (req, res) => {
   if (!req.query.userid) {
     return res.status(404).send({ message: 'Not Found' });
   }
