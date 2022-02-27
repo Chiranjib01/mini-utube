@@ -13,11 +13,8 @@ const Videos = () => {
           <Loading height="30px" width="30px" />
         </div>
       ) : !videos.length ? (
-        <div
-          className="loading"
-          style={{ marginLeft: '-30px', fontSize: '18px' }}
-        >
-          No Video Here
+        <div className="page-center">
+          <div className="line-center">No Video Here</div>
         </div>
       ) : (
         <div className="video-container">
@@ -28,12 +25,16 @@ const Videos = () => {
                 <div className="details">
                   <img src={video.userProfilePicture} alt="" />
                   <div className="meta">
-                    <div className="title">{`${video.title.slice(
-                      0,
-                      200
-                    )}...`}</div>
-                    <div className="createdAt">
-                      {moment(video.createdAt).fromNow()}
+                    <div className="title">
+                      {video.title.length > 220
+                        ? `${video.title.slice(0, 200)}...`
+                        : video.title}
+                    </div>
+                    <div className="meta-details">
+                      <div className="channel-name">{video.userName}</div>
+                      <div className="createdAt">
+                        {moment(video.createdAt).fromNow()}
+                      </div>
                     </div>
                   </div>
                 </div>

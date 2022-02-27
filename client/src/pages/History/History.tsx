@@ -5,7 +5,9 @@ import { Link } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
 import { useAppSelector } from '../../redux/hooks';
 import { API_URL } from '../../utils/constants';
+
 import '../Videos/videos.css';
+import './history.css';
 
 const History = () => {
   const { user } = useAppSelector((state) => state.user);
@@ -36,11 +38,8 @@ const History = () => {
           <Loading height="30px" width="30px" />
         </div>
       ) : !videos.length ? (
-        <div
-          className="loading"
-          style={{ marginLeft: '-30px', fontSize: '18px' }}
-        >
-          No Video In History
+        <div className="page-center">
+          <div className="no-history">No Video In History</div>
         </div>
       ) : (
         <>

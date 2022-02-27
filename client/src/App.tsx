@@ -16,6 +16,7 @@ import Feed from './pages/Feed/Feed';
 import UploadVideo from './pages/UploadVideo/UploadVideo';
 import EditProfile from './pages/EditProfile/EditProfile';
 import Video from './pages/Video/Video';
+import Search from './pages/Search/Search';
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -43,6 +44,7 @@ function App() {
         <Route element={<Register />} path="/register" />
         <Route element={<Feed />} path="/feed" />
         <Route element={<History />} path="/history" />
+        <Route element={<Search />} path="/search" />
         <Route element={<UploadVideo />} path="/upload-video" />
         <Route element={<UserProfile />} path="/user/:userId" />
         <Route element={<Video />} path="/video/:videoId" />

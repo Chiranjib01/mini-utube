@@ -22,7 +22,7 @@ const Video = () => {
       const { data } = await axios.post(`${API_URL}/user/history`, {
         title: video.title,
         userId: user._id,
-        videoId: video._id,
+        videoId,
         channelProfilePicture: video.userProfilePicture,
         thumbnail: video.thumbnail,
       });
@@ -59,6 +59,12 @@ const Video = () => {
             ></video>
             <div className="video-details">
               <div className="title">{video.title}</div>
+              <div className="channel-details">
+                <div className="channel-name">{video.userName}</div>
+                <div className="subscribe-btn-container">
+                  <button className="subscribe-btn">subscribe</button>
+                </div>
+              </div>
               <div className="description">{video.description}</div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 import './header.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { VscMenu } from 'react-icons/vsc';
 import { CgProfile } from 'react-icons/cg';
@@ -7,10 +7,9 @@ import { IoSettingsOutline } from 'react-icons/io5';
 import { MdOutlineVideoLibrary } from 'react-icons/md';
 import logo from '../../logo1.jpg';
 import { APP_NAME } from '../../utils/constants';
-import { showMessage } from '../../redux/slices/message';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import PopUpMessage from '../PopUpMessage/PopUpMessage';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { logoutUser } from '../../redux/slices/user';
 
 interface HeaderProps {
@@ -25,6 +24,8 @@ const Header = ({ setShowSidebar, setActiveItem }: HeaderProps) => {
   const { message } = useAppSelector((state) => state.message);
   const { user } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
+
+  const [searchInput, setSearchInput] = useState('');
 
   return (
     <header className="header">
@@ -46,9 +47,21 @@ const Header = ({ setShowSidebar, setActiveItem }: HeaderProps) => {
         </div>
       </div>
       <div className="search-form-container">
-        <form className="search-form">
+        <form
+          className="search-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            navigate(`/search?q=${searchInput}`);
+          }}
+        >
           <div className="search-input-container">
-            <input type="text" className="search-input" placeholder="Search" />
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
           </div>
           <div className="search-icon-container">
             <button type="submit">

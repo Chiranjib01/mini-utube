@@ -84,8 +84,11 @@ userRouter.get('/user/video', async (req, res) => {
 userRouter.post('/user/history', async (req, res) => {
   try {
     await db.connect();
-    const exist = new History().find().where('userId', req.body.userId);
-    if (exist) {
+    const exist = await History.find()
+      .where('userId', req.body.userId)
+      .where('videoId', req.body.videoId);
+
+    if (exist.length > 0) {
       return res.status(200).send({ message: 'already exist' });
     }
     const newHistory = new History({
@@ -100,7 +103,8 @@ userRouter.post('/user/history', async (req, res) => {
     return res.status(200).send(history);
   } catch (err) {
     await db.disconnect();
-    res.status(500).send({ message: 'Something went wrong' });
+    console.log(err);
+    res.status(500).send({ message: 'Something went wrong', error: err });
   }
 });
 
@@ -113,6 +117,21 @@ userRouter.get('/user/history', async (req, res) => {
     const history = await History.find().where('userId', req.query.userid);
     await db.disconnect();
     return res.status(200).send(history);
+  } catch (err) {
+    await db.disconnect();
+    res.status(500).send({ message: 'Something went wrong' });
+  }
+});
+
+userRouter.delete('/user/history', async (req, res) => {
+  if (!req.query.userid) {
+    return res.status(404).send({ message: 'Not Found' });
+  }
+  try {
+    await db.connect();
+    await History.deteteMany().where('userId', req.query.userid);
+    await db.disconnect();
+    return res.status(200).send({ message: 'deleted successfully' });
   } catch (err) {
     await db.disconnect();
     res.status(500).send({ message: 'Something went wrong' });

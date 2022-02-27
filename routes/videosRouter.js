@@ -35,6 +35,33 @@ videosRouter.get('/video', async (req, res) => {
   }
 });
 
+videosRouter.get('/video/search', async (req, res) => {
+  if (!req.query.query) {
+    return res.status(404).send({ message: 'Not Found' });
+  }
+  try {
+    await db.connect();
+    const videos = await Video.aggregate([
+      {
+        $search: {
+          index: 'text',
+          text: {
+            query: req.query.query,
+            path: {
+              wildcard: '*',
+            },
+          },
+        },
+      },
+    ]);
+    await db.disconnect();
+    return res.status(200).send(videos);
+  } catch (err) {
+    await db.disconnect();
+    res.status(500).send({ message: 'Something went wrong', error: err });
+  }
+});
+
 videosRouter.post('/video', async (req, res) => {
   try {
     await db.connect();
