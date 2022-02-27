@@ -19,16 +19,13 @@ const Video = () => {
       return;
     }
     try {
-      const { data } = await axios.post(
-        `${API_URL}/user/history?userid=${user._id}`,
-        {
-          title: video.title,
-          userId: user._id,
-          videoId: video._id,
-          channelProfilePicture: video.userProfilePicture,
-          thumbnail: video.thumbnail,
-        }
-      );
+      const { data } = await axios.post(`${API_URL}/user/history`, {
+        title: video.title,
+        userId: user._id,
+        videoId: video._id,
+        channelProfilePicture: video.userProfilePicture,
+        thumbnail: video.thumbnail,
+      });
     } catch (err) {
       //
     }
