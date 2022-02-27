@@ -22,9 +22,7 @@ userRouter.post('/register', async (req, res) => {
       const user = await newUser.save();
       await db.disconnect();
       const token = signToken(user);
-      return res
-        .status(200)
-        .send({ message: 'registed successfully', user: { ...user, token } });
+      return res.status(200).send({ ...user, token });
     }
   } catch (err) {
     return res
@@ -40,12 +38,7 @@ userRouter.post('/login', async (req, res) => {
     await db.disconnect();
     if (user && bcrypt.compareSync(req.body.password, user.password)) {
       const token = signToken(user);
-      return res.status(200).send({
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        token,
-      });
+      return res.status(200).send(user);
     } else {
       await db.disconnect();
       return res.status(401).send({ message: 'Invalid credentials' });

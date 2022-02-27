@@ -7,7 +7,7 @@ const videosApi = createApi({
     baseUrl: API_URL,
   }),
   endpoints: (build) => ({
-    getVideos: build.query<string[], void>({
+    getVideos: build.query<any, void>({
       query: () => '/videos',
       // transformResponse:(response)=>response.data
     }),

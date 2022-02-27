@@ -6,6 +6,9 @@
   animation-fill-mode: both;
   color: #1815dd;
 }
+.inline-block {
+  display: inline-block;
+}
 
 /* circular loader animations */
 @keyframes circularLoaderAnimation {

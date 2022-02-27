@@ -1,11 +1,21 @@
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import './loading.css';
 
-const Loading = ({ height = '30px', width = '30px' }) => {
+interface LoadingProps {
+  height: string;
+  width: string;
+  className?: string;
+}
+
+const Loading = ({
+  height = '30px',
+  width = '30px',
+  className = '',
+}: LoadingProps) => {
   return (
-    <div>
+    <div className={className}>
       <AiOutlineLoading3Quarters
-        className="circularLoader"
+        className={`circularLoader`}
         style={{ height, width }}
       />
     </div>

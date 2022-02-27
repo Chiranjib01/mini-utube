@@ -1,0 +1,60 @@
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.video-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 8px 18px;
+}
+.video-container article {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 600mx ease-out;
+}
+.video-container a {
+  text-decoration: none;
+}
+.video-container .thumbnail {
+  width: 100%;
+}
+.video-container .details img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+.details {
+  display: flex;
+  padding: 4px;
+  border-top: 1px solid #ccc;
+}
+.details .title {
+  color: black;
+}
+.details .meta {
+  display: flex;
+  flex-direction: column;
+}
+.details .meta .createdAt {
+  font-size: 12px;
+  color: #726f6f;
+  padding-top: 1px;
+}
+
+.video-container article:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (min-width: 500px) {
+  .video-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 900px) {
+  .video-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

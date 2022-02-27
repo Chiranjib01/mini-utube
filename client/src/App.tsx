@@ -15,6 +15,7 @@ import UserProfile from './pages/UserProfile/UserProfile';
 import Feed from './pages/Feed/Feed';
 import UploadVideo from './pages/UploadVideo/UploadVideo';
 import EditProfile from './pages/EditProfile/EditProfile';
+import Video from './pages/Video/Video';
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -44,6 +45,7 @@ function App() {
         <Route element={<History />} path="/history" />
         <Route element={<UploadVideo />} path="/upload-video" />
         <Route element={<UserProfile />} path="/user/:userId" />
+        <Route element={<Video />} path="/video/:videoId" />
         <Route element={<EditProfile />} path="/profile/edit/:userId" />
       </Routes>
     </>
