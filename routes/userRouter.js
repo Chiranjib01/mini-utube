@@ -10,7 +10,6 @@ userRouter.post('/register', async (req, res) => {
   try {
     await db.connect();
     const user = await User.findOne({ email: req.body.email });
-    await db.disconnect();
     if (user && user._id) {
       return res.status(400).send({ message: 'user already exists' });
     } else {
@@ -38,12 +37,29 @@ userRouter.post('/login', async (req, res) => {
     await db.disconnect();
     if (user && bcrypt.compareSync(req.body.password, user.password)) {
       const token = signToken(user);
-      return res.status(200).send(user);
+      return res.status(200).send({ ...user, token });
     } else {
       await db.disconnect();
       return res.status(401).send({ message: 'Invalid credentials' });
     }
   } catch (err) {
+    res.status(500).send({ message: 'Something went wrong' });
+  }
+});
+
+videosRouter.get('/user/video', async (req, res) => {
+  if (!req.query.userid) {
+    return res.status(404).send({ message: 'Not Found' });
+  }
+  try {
+    await db.connect();
+    const videos = await Video.find({ userId: req.query.userid }).orderBy({
+      createdAt: -1,
+    });
+    await db.disconnect();
+    return res.status(200).send(videos);
+  } catch (err) {
+    await db.disconnect();
     res.status(500).send({ message: 'Something went wrong' });
   }
 });
