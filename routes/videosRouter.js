@@ -12,13 +12,13 @@ videosRouter.get('/videos', async (req, res) => {
     return res.status(200).send(videos);
   } catch (err) {
     await db.disconnect();
-    res.status(500).send({ message: 'Something went wrong' });
+    res.status(500).send({ message: 'something went wrong' });
   }
 });
 
 videosRouter.get('/video', async (req, res) => {
   if (!req.query.videoid) {
-    return res.status(404).send({ message: 'Not Found' });
+    return res.status(404).send({ message: 'not found' });
   }
   try {
     await db.connect();
@@ -27,17 +27,17 @@ videosRouter.get('/video', async (req, res) => {
     if (video && video._id) {
       return res.status(200).send(video);
     } else {
-      return res.status(404).send({ message: 'Video Not Found' });
+      return res.status(404).send({ message: 'video not found' });
     }
   } catch (err) {
     await db.disconnect();
-    res.status(500).send({ message: 'Something went wrong' });
+    res.status(500).send({ message: 'something went wrong' });
   }
 });
 
 videosRouter.get('/video/search', async (req, res) => {
   if (!req.query.query) {
-    return res.status(404).send({ message: 'Not Found' });
+    return res.status(404).send({ message: 'not found' });
   }
   try {
     await db.connect();
@@ -58,7 +58,7 @@ videosRouter.get('/video/search', async (req, res) => {
     return res.status(200).send(videos);
   } catch (err) {
     await db.disconnect();
-    res.status(500).send({ message: 'Something went wrong', error: err });
+    res.status(500).send({ message: 'something went wrong', error: err });
   }
 });
 
@@ -90,13 +90,13 @@ videosRouter.post('/video', async (req, res) => {
     return res.status(200).send(video);
   } catch (err) {
     await db.disconnect();
-    res.status(500).send({ message: 'Something went wrong', error: err });
+    res.status(500).send({ message: 'something went wrong', error: err });
   }
 });
 
 videosRouter.delete('/video', async (req, res) => {
   if (!req.query.videoid) {
-    return res.status(404).send({ message: 'Video id is required' });
+    return res.status(404).send({ message: 'video id is required' });
   }
   try {
     await db.connect();
@@ -109,7 +109,7 @@ videosRouter.delete('/video', async (req, res) => {
     return res.status(200).send({ message: 'video deleted successfully' });
   } catch (err) {
     await db.disconnect();
-    res.status(500).send({ message: 'Something went wrong' });
+    res.status(500).send({ message: 'something went wrong' });
   }
 });
 
